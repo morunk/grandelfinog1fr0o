@@ -1,0 +1,25 @@
+<!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-assets>
+	    <video id="ar-video" autoplay loop="true" muted="true" src="https://rr5---sn-3pm7dn7d.c.drive.google.com/videoplayback?expire=1647578578&ei=ktUzYse-OZ_j-LYP286_gAk&ip=133.16.162.253&cp=QVRJWUZfV1VVSVhPOkRjZ2dBM1hkQV9zUVRySWxJd1ZaTjJzeTVqZ3c2SnlqZ1NfVGhLZVhsNnI&id=55da25f979afa76c&itag=18&source=webdrive&requiressl=yes&mh=u_&mm=32&mn=sn-3pm7dn7d&ms=su&mv=u&mvi=5&pl=16&ttl=transient&susc=dr&driveid=1b5VVWwId3JRdDpnRg6WdeNnLH9kQjhXJ&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=3528.192&lmt=1625822665415942&mt=1647563888&subapp=DRIVE_WEB_FILE_VIEWER&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIgCx9Ic59g5wQxW8yOaWS1mTnA6thSLwXH26CgkNAJ-EUCIQDq0ln6u2q_PRE7-5IwwypxyZFQhjm9py5rmuM3clvWdA==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIgactPbu7wRO5zNUvxL5eBg56Kyavu91LaRCAF8JiGDj0CIQD7uXgyh0M9HZ7LHYcPdnPUp-Weq_uEJQGAxMyauy6aFA==&cpn=lBCLZt8UNJucHWSK&c=WEB_EMBEDDED_PLAYER&cver=1.20220316.01.00"></video>
+	  </a-assets>
+	  <!-- デバッグ用の画面表示、VR用のボタンをそれぞれ非表示に -->
+    <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
+      <!-- 今回作成した『.patt』ファイルを読み込む -->
+      <a-marker type='pattern' url='**.patt'>
+	      <a-video src="#ar-video" width="2.6" height="1.4" position="0 0 0" rotation="270 0 0" play="true"></a-video>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+    
+    <script>
+      window.addEventListener('click', function () {
+      var v = document.querySelector('#ar-video');
+      v.play();
+      });
+    </script>
+  </body>
+</html>
